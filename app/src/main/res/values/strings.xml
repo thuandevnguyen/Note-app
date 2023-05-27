@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">My App Note</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="todo">TODO</string>
+    <string name="wellcome_back">Wellcome \nback</string>
+    <string name="create_account">Create \naccount</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login">Login</string>
+    <string name="don_t_have_an_account_sign_in">Don’t have an account? Sign in</string>
+    <string name="creacc">Create account</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="no_notes_available">No notes found !!!</string>
+    <string name="type_your_title">Type your title</string>
+    <string name="type_something">Type something...</string>
+    <string name="bersyte">bersyte</string>
+</resources>

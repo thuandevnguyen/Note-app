@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="blue">#0000FF</color>
+    <color name="colorOnPrimary">@color/white</color>
+    <color name="colorPrimaryVariant">@color/design_default_color_primary_dark</color>
+    <color name="colorPrimary">#3189CF</color>
+    <color name="background_white">#EDE9E9</color>
+    <color name="hintColor">#928E8E</color>
+
+    <color name="my_custom_background">#C0E5EA</color>
+
+</resources>
