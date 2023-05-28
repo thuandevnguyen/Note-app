@@ -8,9 +8,10 @@ import com.example.myappnote.R
 
 class NoteAdapter(private val noteList: List<Note>) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
-    class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val textViewNoteTitle: TextView = itemView.findViewById(R.id.textViewNoteTitle)
-        val textViewNoteBody: TextView = itemView.findViewById(R.id.textViewNoteBody)
+    private var itemClickListener: ItemClickListener? = null
+
+    fun setItemClickListener(listener: ItemClickListener) {
+        itemClickListener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
@@ -20,11 +21,33 @@ class NoteAdapter(private val noteList: List<Note>) : RecyclerView.Adapter<NoteA
 
     override fun onBindViewHolder(holder: NoteViewHolder, position: Int) {
         val currentNote = noteList[position]
-        holder.textViewNoteTitle.text = currentNote.title
-        holder.textViewNoteBody.text = currentNote.body
+        holder.bind(currentNote)
     }
 
     override fun getItemCount(): Int {
         return noteList.size
+    }
+
+    inner class NoteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val titleTextView: TextView = itemView.findViewById(R.id.titleTextView)
+        private val bodyTextView: TextView = itemView.findViewById(R.id.bodyTextView)
+
+        init {
+            itemView.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    itemClickListener?.onItemClick(noteList[position])
+                }
+            }
+        }
+
+        fun bind(note: Note) {
+            titleTextView.text = note.title
+            bodyTextView.text = note.body
+        }
+    }
+
+    interface ItemClickListener {
+        fun onItemClick(note: Note)
     }
 }

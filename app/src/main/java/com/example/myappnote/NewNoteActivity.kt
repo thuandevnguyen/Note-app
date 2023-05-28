@@ -3,8 +3,8 @@ package com.example.myappnote
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Button
 import android.widget.EditText
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class NewNoteActivity : AppCompatActivity() {
 
@@ -13,8 +13,8 @@ class NewNoteActivity : AppCompatActivity() {
         setContentView(R.layout.activity_new_note)
 
 
-        val floatingActionButton = findViewById<FloatingActionButton>(R.id.floatingActionButton)
-        floatingActionButton.setOnClickListener {
+        val btn_saveNewNote = findViewById<Button>(R.id.btn_saveNote)
+        btn_saveNewNote.setOnClickListener {
             val noteTitle = findViewById<EditText>(R.id.etNoteTitle).text.toString()
             val noteBody = findViewById<EditText>(R.id.etNoteBody).text.toString()
 

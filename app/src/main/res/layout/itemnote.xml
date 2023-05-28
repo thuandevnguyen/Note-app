@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- item_note.xml -->
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- item_note.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="156dp"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    >
 
     <TextView
-        android:id="@+id/textViewNoteTitle"
+        android:id="@+id/titleTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textStyle="bold" />
+        android:textSize="25sp"
+        android:textStyle="bold"
+        android:text="heeloo"/>
 
     <TextView
-        android:id="@+id/textViewNoteBody"
+        android:id="@+id/bodyTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
+        android:layout_marginTop="10dp"
+        android:textSize="17sp"
+        android:maxLines="4"
+        android:ellipsize="end"
+        android:text="sampleList.add(Note(Note 1This is the body of Note 1.This is the body oThis is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.)) "/>
 
 </LinearLayout>

@@ -5,71 +5,88 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/background_white"
-    tools:context=".UpdateNoteActivity">
+    android:orientation="vertical"
+    tools:context=".NewNoteActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
-            android:background="@color/white"
-            app:cardCornerRadius="5dp"
-            app:cardElevation="8dp">
-
+            android:orientation="vertical"
+            android:padding="10dp">
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:padding="16dp">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/etNoteTitleUpdate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:ems="10"
-                    android:hint="Type your title"
-                    android:inputType="text"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                <ImageButton
+                    android:id="@+id/backButton1"
+                    android:layout_width="56dp"
+                    android:layout_height="49dp"
+                    android:background="@color/white"
+                    android:src="@mipmap/arrow"
+                    android:contentDescription="TODO" />
 
-                <EditText
-                    android:id="@+id/etNoteBodyUpdate"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:background="@android:color/transparent"
-                    android:ems="10"
-                    android:gravity="start|top"
-                    android:hint="Type something..."
-                    android:inputType="textMultiLine"
-                    android:textColor="@color/black"
-                    android:textColorHint="@color/hintColor"
-                    android:textSize="16sp" />
+                <ImageButton
+                    android:id="@+id/backButton2"
+                    android:layout_width="56dp"
+                    android:layout_height="49dp"
+                    android:background="@color/white"
+                    android:src="@mipmap/bin"
+                    android:layout_marginStart="150dp"
+                    android:contentDescription="TODO" />
+
+                <ImageButton
+                    android:id="@+id/backButton3"
+                    android:layout_width="56dp"
+                    android:layout_height="49dp"
+                    android:background="@color/white"
+                    android:src="@mipmap/share"
+                    android:layout_marginStart="20dp"
+                    android:contentDescription="TODO" />
 
             </LinearLayout>
 
-        </androidx.cardview.widget.CardView>
-    </LinearLayout>
+            <EditText
+                android:id="@+id/textViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                tools:text="Note Title" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_done"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
-        android:clickable="true"
-        app:borderWidth="0dp"
-        android:backgroundTint="@color/colorPrimary"
-        android:tintMode="@color/white"
-        app:srcCompat="@android:drawable/checkbox_on_background"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="@string/bersyte" />
+            <EditText
+                android:id="@+id/textViewBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="17sp"
+                tools:text="Note Body" />
+
+            <Button
+                android:id="@+id/btn_saveNote"
+                android:layout_width="130dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="220dp"
+                android:background="@drawable/btn_styles"
+                android:text="Save"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

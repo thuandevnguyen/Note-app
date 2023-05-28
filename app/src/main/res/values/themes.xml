@@ -5,10 +5,5 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:background">@color/my_custom_background</item>
-        <!-- Các thuộc tính khác -->
-    </style>
-
     <style name="Theme.MyAppNote" parent="Base.Theme.MyAppNote" />
 </resources>

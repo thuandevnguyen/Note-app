@@ -3,16 +3,19 @@ package com.example.myappnote
 import NoteAdapter
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.widget.ImageButton
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), NoteAdapter.ItemClickListener {
 
-    private val noteList: MutableList<Note> = mutableListOf() // Danh sách các ghi chú
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var noteAdapter: NoteAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,63 +27,49 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, NewNoteActivity::class.java)
             startActivity(intent)
         }
-    }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.search_note, menu)
-        return true
-    }
+        // ...
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            R.id.menu_search -> {
-                // TODO: Xử lý khi mục "Search" được chọn
-                true
-            }
-            R.id.menu_new_note -> {
-                // Xử lý khi mục "New Note" được chọn
-                openSaveNoteActivity()
-                true
-            }
-            R.id.menu_delete -> {
-                // TODO: Xử lý khi mục "Delete Note" được chọn
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
+        recyclerView = findViewById(R.id.recyclerView)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+
+        val noteList = createSampleNoteList()
+        noteAdapter = NoteAdapter(noteList)
+        recyclerView.adapter = noteAdapter
+
+        //..
+        val dividerItemDecoration = DividerItemDecoration(recyclerView.context, DividerItemDecoration.VERTICAL)
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(recyclerView.context, R.drawable.divider)!!)
+        recyclerView.addItemDecoration(dividerItemDecoration)
+
+        //..
+        noteAdapter.setItemClickListener(this)
+
+        //..
+        val aboutuser = findViewById<ImageView>(R.id.aboutuser)
+        aboutuser.setOnClickListener {
+            val intent = Intent(this, AboutUserActivity::class.java)
+            startActivity(intent)
         }
     }
 
-    // Phương thức mở SaveNoteActivity để tạo ghi chú mới
-    private fun openSaveNoteActivity() {
-        val intent = Intent(this, NewNoteActivity::class.java)
-        startActivityForResult(intent, SAVE_NOTE_REQUEST)
+    private fun createSampleNoteList(): List<Note> {
+        // Tạo danh sách các note mẫu
+        val sampleList = mutableListOf<Note>()
+        sampleList.add(Note("Note 1", "This is the body of Note 1.This is the body oThis is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1."))
+        sampleList.add(Note("Note 2", "This is the body of Note 2."))
+        sampleList.add(Note("Note 3", "This is the body of Note 3.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1."))
+        sampleList.add(Note("Note 4", "This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1."))
+        sampleList.add(Note("Note 5", "This is the body of Note 2."))
+        sampleList.add(Note("Note 6", "This is the body of Note 3.This is the body of Note 1.This is the bodyThis is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body of Note 1.This is the body o of Note 1.This is the body of Note 1.This is the body of Note 1."))
+        // Thêm các note khác vào danh sách mẫu
+        return sampleList
     }
 
-    // Phương thức nhận dữ liệu trả về từ Activity con (SaveNoteActivity)
-    @Deprecated("Deprecated in Java")
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == SAVE_NOTE_REQUEST && resultCode == RESULT_OK) {
-            val noteTitle = data?.getStringExtra("noteTitle")
-            val noteBody = data?.getStringExtra("noteBody")
-
-            if (!noteTitle.isNullOrEmpty() && !noteBody.isNullOrEmpty()) {
-                val note = Note(noteTitle, noteBody)
-                noteList.add(note)
-                displayNotes()
-            }
-        }
-    }
-
-    private fun displayNotes() {
-        val recyclerViewNotes: RecyclerView = findViewById(R.id.recyclerViewNotes)
-        val noteAdapter = NoteAdapter(noteList)
-        recyclerViewNotes.adapter = noteAdapter
-        recyclerViewNotes.layoutManager = LinearLayoutManager(this)
-    }
-
-    companion object {
-        private const val SAVE_NOTE_REQUEST = 1
+    override fun onItemClick(note: Note) {
+        val intent = Intent(this, UpdateNoteActivity::class.java)
+        intent.putExtra("note_title", note.title)
+        intent.putExtra("note_body", note.body)
+        startActivity(intent)
     }
 }
