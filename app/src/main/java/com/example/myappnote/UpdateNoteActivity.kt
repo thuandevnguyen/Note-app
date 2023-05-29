@@ -2,6 +2,7 @@ package com.example.myappnote
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 
 class UpdateNoteActivity : AppCompatActivity() {
@@ -18,5 +19,10 @@ class UpdateNoteActivity : AppCompatActivity() {
 
         textViewTitle.text = noteTitle
         textViewBody.text = noteBody
+
+        val btnClose = findViewById<ImageButton>(R.id.backButton1)
+        btnClose.setOnClickListener {
+            finish()
+        }
     }
 }
