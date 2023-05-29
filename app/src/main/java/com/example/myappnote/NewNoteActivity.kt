@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 
 class NewNoteActivity : AppCompatActivity() {
 
@@ -25,6 +26,10 @@ class NewNoteActivity : AppCompatActivity() {
             finish()
         }
 
+        val btnClose = findViewById<ImageButton>(R.id.backButton)
+        btnClose.setOnClickListener {
+            finish()
+        }
     }
 
 }
