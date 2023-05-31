@@ -45,7 +45,7 @@
                 android:inputType="text"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="30sp"
+                android:textSize="@dimen/sp_30"
                 android:textStyle="bold"
                 android:importantForAutofill="no" />
 
@@ -61,7 +61,7 @@
                 android:inputType="textMultiLine"
                 android:textColor="@color/black"
                 android:textColorHint="@color/hintColor"
-                android:textSize="20sp" />
+                android:textSize="@dimen/dp_21" />
 
             <Button
                 android:id="@+id/btn_saveNote"
@@ -70,7 +70,7 @@
                 android:layout_marginStart="200dp"
                 android:background="@drawable/btn_styles"
                 android:text="Save"
-                android:textSize="20sp" />
+                android:textSize="@dimen/sp_20" />
 
 
         </LinearLayout>

@@ -31,7 +31,7 @@
         android:letterSpacing="0.01"
         android:text="@string/create_account"
         android:textColor="#303030"
-        android:textSize="34sp"
+        android:textSize="@dimen/sp_30"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -119,7 +119,7 @@
         android:layout_marginTop="130dp"
         android:background="@drawable/btn_styles"
         android:text="@string/creacc"
-        android:textSize="20sp"
+        android:textSize="@dimen/sp_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayoutConfirmPassword" />
@@ -130,7 +130,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="@string/don_t_have_an_account_sign_in"
-        android:textSize="16sp"
+        android:textSize="@dimen/sp_16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_signup" />

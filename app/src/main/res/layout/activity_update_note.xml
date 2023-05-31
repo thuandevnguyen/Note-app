@@ -63,7 +63,7 @@
                 android:id="@+id/textViewTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="34sp"
+                android:textSize="@dimen/sp_30"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp"
                 tools:text="Note Title" />
@@ -72,7 +72,7 @@
                 android:id="@+id/textViewBody"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="17sp"
+                android:textSize="@dimen/sp_17"
                 tools:text="Note Body" />
 
             <Button
@@ -82,7 +82,7 @@
                 android:layout_marginStart="200dp"
                 android:background="@drawable/btn_styles"
                 android:text="Save"
-                android:textSize="20sp" />
+                android:textSize="@dimen/sp_20" />
 
 
         </LinearLayout>
